@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PodcastApp</title>
+    <link rel="icon" href="image/title-img.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" defer src="src/index.js"></script>
+  </head>
+
+  <body>
+    <main>
+      <!-- Header -->
+      <header>
+        <div class="header-left">
+          <!-- Clickable app logo that triggers a page reload -->
+          <img
+            src="image/podcast-icon.svg"
+            alt="podcast logo"
+            class="podcast-icon"
+            id="podcastIcon"
+          />
+          <span class="app-name">PodcastApp</span>
+        </div>
+
+        <div class="header-right">
+          <!-- Search input with toggle button -->
+          <div class="search-container">
+            <button class="search-btn">
+              <img
+                src="image/search-icon.svg"
+                alt="search"
+                class="search-icon"
+              />
+            </button>
+            <input
+              type="text"
+              placeholder="Search..."
+              id="searchBar"
+              class="search-input"
+            />
+          </div>
+
+          <!-- Placeholder profile picture -->
+          <img
+            src="image/user-profile.svg"
+            alt="Profile Picture"
+            class="profile-pic"
+          />
+        </div>
+      </header>
+
+      <!-- MAIN CONTENT WRAPPER -->
+      <div class="container">
+        <!-- Filter dropdowns -->
+        <div class="filters">
+          <!-- Genre filter -->
+          <label for="genreSelect">Filter by:</label>
+          <select id="genreSelect">
+            <option>All Genres</option>
+            <option>Genre 1</option>
+            <option>Genre 2</option>
+            <option>Genre 3</option>
+            <option>Genre 4</option>
+          </select>
+
+          <!-- Sort filter -->
+          <select id="sortSelect">
+            <option>Recently Updated</option>
+            <option>Most Popular</option>
+            <option>Newest</option>
+          </select>
+        </div>
+
+        <!-- Podcast cards dynamically injected via JS -->
+        <div id="podcastList" class="podcast-list"></div>
+
+        <!-- MODAL SECTION -->
+        <div id="modal" class="modal hidden" aria-hidden="true">
+          <div class="modal-content">
+            <!-- Close button -->
+            <span class="close-button">&times;</span>
+            <!-- Modal dynamic content -->
+            <div id="modalContent"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
