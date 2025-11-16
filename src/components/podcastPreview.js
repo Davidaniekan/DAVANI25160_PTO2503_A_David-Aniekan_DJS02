@@ -225,6 +225,12 @@ class PodcastPreview extends HTMLElement {
          📱 Mobile Responsive Styling
         ============================== */
         @media (max-width: 500px) {
+          :host {
+          display: flex;
+          width: unset;
+          max-width: unset;
+          }
+          
           /* Podcast card */
           .podcast-item {
             max-width: 100%;
