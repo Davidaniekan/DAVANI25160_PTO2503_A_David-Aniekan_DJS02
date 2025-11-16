@@ -43,6 +43,28 @@ class PodcastPreview extends HTMLElement {
       })
     );
   }
+
+  render() {
+    const title = this.getAttribute("title") || "";
+    const cover = this.getAttribute("cover") || "";
+    const seasons = this.getAttribute("seasons") || "";
+    const updated = this.getAttribute("updated") || "";
+    const genres = this.getAttribute("genres") || "[]";
+
+    // Parse genres attribute into an array of genre names.
+    let genreList = [];
+    try {
+      const parsed = JSON.parse(genres);
+      if (Array.isArray(parsed)) genreList = parsed.map((g) => String(g));
+      else genreList = [String(parsed)];
+    } catch {
+      // Fallback: split on commas if it's a plain string
+      genreList = String(genres)
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean);
+    }
+  }
 }
 
 customElements.define("podcast-preview", PodcastPreview);
