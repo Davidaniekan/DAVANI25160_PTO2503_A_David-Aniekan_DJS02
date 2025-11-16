@@ -28,6 +28,21 @@ class PodcastPreview extends HTMLElement {
   attributeChangedCallback() {
     this.render();
   }
+
+  /**
+   * Dispatch event to parent when card is clicked.
+   */
+  handleClick() {
+    this.dispatchEvent(
+      new CustomEvent("podcast-selected", {
+        detail: {
+          id: this.getAttribute("id"),
+        },
+        bubbles: true,
+        composed: true,
+      })
+    );
+  }
 }
 
 customElements.define("podcast-preview", PodcastPreview);
