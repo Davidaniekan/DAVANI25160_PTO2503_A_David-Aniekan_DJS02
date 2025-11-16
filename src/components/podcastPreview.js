@@ -300,6 +300,29 @@ class PodcastPreview extends HTMLElement {
           }
         }
       </style>
+
+      <article class="podcast-item" role="button" tabindex="0" aria-label="${title} details">
+        <img src="${cover}" alt="${title} cover" class="podcast-cover">
+
+        <div class="podcast-info">
+          <h2>${title}</h2>
+
+          <span class="seasons">
+           <img src="image/seasons-icon.svg" alt="seasons icon" class="season-icon">
+           <span>${seasons} season${seasons === "1" ? "" : "s"}</span>
+          </span>
+
+          <div class="genre-tags">
+            ${genreList
+              .map((g) => `<span class="genre-tag">${g}</span>`)
+              .join("")}
+          </div>
+
+          <p class="updated">
+            Updated: ${updated}
+          </p>
+        </div>
+      </article>
     `;
   }
 }
